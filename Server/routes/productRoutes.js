@@ -1,9 +1,14 @@
 const express = require('express');
 const router = express.Router();
-const { getProducts, addProduct, receiveStock } = require('../controllers/productController');
+const upload = require('../middleware/uploadMiddleware');
+const { getProducts, addProduct } = require('../controllers/productController');
 
+// 'image' is the name of the field we will send from Postman/Frontend
+router.post('/add', upload.single('image'), addProduct);
 router.get('/', getProducts);
-router.post('/add', addProduct);
-router.post('/stock-update', receiveStock);
 
 module.exports = router;
+
+
+
+
