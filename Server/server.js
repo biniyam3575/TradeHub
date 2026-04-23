@@ -1,4 +1,5 @@
 const authRoutes = require('./routes/authRoutes');
+const productRoutes = require('./routes/productRoutes');
 
 const express = require('express');
 const cors = require('cors');
@@ -13,6 +14,7 @@ app.use(express.json());
 
 
 app.use('/api/auth', authRoutes);
+app.use('/api/products', productRoutes);
 
 // Test Route to verify DB connection
 app.get('/test-db', async (req, res) => {
